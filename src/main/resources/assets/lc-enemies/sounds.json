@@ -1,0 +1,51 @@
+{
+  "entity.bracken.angry": {
+    "subtitle": "sound.lc-enemies.entity.bracken.angry",
+    "sounds": [
+      "lc-enemies:bracken_angry"
+    ]
+  },
+  "entity.bracken.kill": {
+    "subtitle": "sound.lc-enemies.entity.bracken.kill",
+    "sounds": [
+      "lc-enemies:bracken_kill"
+    ]
+  },
+  "entity.bracken.seen": {
+    "subtitle": "sound.lc-enemies.entity.bracken.seen",
+    "sounds": [
+      "lc-enemies:bracken_seen"
+    ]
+  },
+  "entity.bracken.stun": {
+    "subtitle": "sound.lc-enemies.entity.bracken.stun",
+    "sounds": [
+      "lc-enemies:bracken_stun"
+    ]
+  },
+  "entity.coilhead.kill": {
+    "subtitle": "sound.lc-enemies.entity.coilhead.kill",
+    "sounds": [
+      "lc-enemies:coilhead_kill"
+    ]
+  },
+  "entity.coilhead.move": {
+    "subtitle": "sound.lc-enemies.entity.coilhead.move",
+    "sounds": [
+      "lc-enemies:coilhead_move1",
+      "lc-enemies:coilhead_move2",
+      "lc-enemies:coilhead_move3",
+      "lc-enemies:coilhead_move4"
+    ]
+  },
+  "entity.coilhead.stop": {
+    "subtitle": "sound.lc-enemies.entity.coilhead.stop",
+    "sounds": [
+      "lc-enemies:coilhead_stop1",
+      "lc-enemies:coilhead_stop2",
+      "lc-enemies:coilhead_stop3",
+      "lc-enemies:coilhead_wobble1",
+      "lc-enemies:coilhead_wobble2"
+    ]
+  }
+}
