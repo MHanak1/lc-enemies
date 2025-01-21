@@ -139,9 +139,9 @@ public class BrackenEntity extends LCEntity {
 
     @Override
     public void tick() {
-        if (this.getWorld().isClient && facingPlayer != null) {
-            setYaw(0);
-        }
+        //if (this.getWorld().isClient && facingPlayer != null) {
+            //setYaw(0);
+        //}
         decrementRunningTimer();
         super.tick();
     }

@@ -40,7 +40,7 @@ public abstract class LCEntity extends PathAwareEntity {
     public final boolean isInvisible;
     public PlayerEntity facingPlayer;
     public Vec3d lastKnownPlayerPos;
-    protected String visualState;
+    private String visualState;
     @Environment(EnvType.CLIENT)
 
     protected LCEntity(EntityType<? extends PathAwareEntity> entityType, World world, boolean isInvincible) {

@@ -16,13 +16,17 @@ import net.minecraft.sound.SoundEvent;
 import net.minecraft.world.World;
 
 public class CoilheadEntity extends LCEntity {
-    private boolean isFrozen = false;
-    public int lastSeen = 0;
+    public boolean isFrozen = false;
+    public boolean isRecharging = false;
+    public float rechargeTimer = 0;
+    public int timeVisible = 3;
+    float rechargeTime = 15*20; //it takes following the player for 10 seconds
 
     public CoilheadEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
         super(entityType, world, true);
         ((MobNavigation)this.getNavigation()).setCanPathThroughDoors(true);
     }
+
 
     protected void initGoals() {
         viewRange = 50;
@@ -35,7 +39,7 @@ public class CoilheadEntity extends LCEntity {
 
     @Override
     public boolean isCollidable() {
-        return true;
+        return !this.isRecharging;
     }
 
     @Override
@@ -60,29 +64,49 @@ public class CoilheadEntity extends LCEntity {
 
     @Override
     public void tickMovement() {
-        lastSeen++;
-        PlayerEntity entity = isBeingLookedAtBy(50);
-        if (entity != null) {
-            if (lastSeen >= 3) {
-                refreshPosition(); //sync the position between client and server
+        if (rechargeTimer > rechargeTime || isRecharging) {
+            if (!isRecharging){
+                this.velocityDirty = true;
+                this.resetPosition();
+                isRecharging = true;
             }
-            lastKnownPlayerPos = entity.getPos();
-            lastSeen = 0;
+            setVisualState("recharging");
+            rechargeTimer -= rechargeTime/300; //15s * 20 ticks
+
+            if (rechargeTimer <= 0) {
+                isRecharging = false;
+            }
+            else if (!this.getWorld().isClient) {
+                return;
+            }
         }
-        if (lastSeen <= 3){
-            if (!isFrozen) {
-                playStopSound();
-                /*
-                for (Goal goal : this.goalSelector.getGoals()) {
-                    if (goal instanceof FollowPlayerGoal followPlayerGoal) {
-                        followPlayerGoal.canStart();
-                    }
-                }*/ //so there's this bug where if a coilhead sees a player, the player disappears, the coilhead reaches the place where the player was, and the player reappears the coilhead will not follow the player unless they look away
-                    //this did not fix this bug
+        else {
+            PlayerEntity entity = isBeingLookedAtBy(50);
+
+            if (entity != null) {
+                lastKnownPlayerPos = entity.getPos();
+                timeVisible++;
             }
-            isFrozen = true;
-            return;
-        } else isFrozen = false;
+            else timeVisible = 0;
+            if (timeVisible > 1) {
+                if (!isFrozen) {
+                    playStopSound();
+                    this.velocityDirty = true;
+                    this.resetPosition();
+                }
+                isFrozen = true;
+                if (!this.getWorld().isClient) {
+                    return;
+                }
+            } else {
+                // /* //recharge phase is disabled for now since it desynchronises between client and server, and i'd have to write custom networking to fix that
+                if (getVisualState().equals("following")) {
+                    rechargeTimer++;
+                }
+                // */
+                isFrozen = false;
+            }
+        }
         super.tickMovement();
     }
 

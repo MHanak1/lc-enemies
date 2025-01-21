@@ -22,7 +22,6 @@ public class BrackenChasePlayerGoal extends FollowPlayerGoal {
 
     @Override
     public void start() {
-        ((BrackenEntity) mob).setVisualState("chasing");
         ((BrackenEntity) mob).startAngrySound();
         ((BrackenEntity) mob).timesSeen = 1;
         //System.out.println("BrackenChasePlayerGoal start");
@@ -30,6 +29,7 @@ public class BrackenChasePlayerGoal extends FollowPlayerGoal {
             ((BrackenEntity) mob).anger = 100;
         }
         super.start();
+        ((BrackenEntity) mob).setVisualState("chasing");
     }
 
     @Override

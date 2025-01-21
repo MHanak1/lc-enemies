@@ -1,14 +1,14 @@
 package net.mhanak;
 
+import net.fabricmc.api.ClientModInitializer;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.mhanak.networking.ModS2CPackets;
 import net.mhanak.registry.ModEntities;
 import net.mhanak.render.entity.BrackenEntityRenderer;
 import net.mhanak.render.entity.CoilheadEntityRenderer;
 import net.mhanak.render.entity.model.BrackenEntityModel;
 import net.mhanak.render.entity.model.CoilheadEntityModel;
-import net.fabricmc.api.ClientModInitializer;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 
 public class LCEnemiesModClient implements ClientModInitializer {

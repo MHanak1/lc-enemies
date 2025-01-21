@@ -12,7 +12,7 @@ public class CoilheadDamagePlayerGoal extends DamagePlayerGoal {
 
     @Override
     public boolean canStart() {
-        if (((CoilheadEntity) this.mob).lastSeen < 3) return false;
+        if (((CoilheadEntity) this.mob).timeVisible > 0) return false;
         return super.canStart();
     }
 }

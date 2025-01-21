@@ -16,7 +16,8 @@ public abstract class LCEntityRenderer<T extends LCEntity, S extends LCEntityRen
 
     @Override
     protected @Nullable Text getDisplayName(T entity) {
-        return Text.of(entity.getVisualState());
+        //return Text.of(entity.getVisualState());
+        return null;
     }
 
     @Override
