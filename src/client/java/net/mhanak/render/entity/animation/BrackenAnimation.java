@@ -5,6 +5,9 @@ import net.minecraft.client.render.entity.animation.AnimationHelper;
 import net.minecraft.client.render.entity.animation.Keyframe;
 import net.minecraft.client.render.entity.animation.Transformation;
 
+/**
+ * @author CaveManMan :3
+ */
 public class BrackenAnimation {
     public static final Animation CROUCH = Animation.Builder.create(0.3333F)
             .addBoneAnimation("mainBody", new Transformation(Transformation.Targets.ROTATE,

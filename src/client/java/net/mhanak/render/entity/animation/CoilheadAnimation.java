@@ -6,7 +6,7 @@ import net.minecraft.client.render.entity.animation.Keyframe;
 import net.minecraft.client.render.entity.animation.Transformation;
 
 /**
- * @author CaveManMan
+ * @author CaveManMan :3
  */
 public class CoilheadAnimation {
 	public static final Animation WALK_CYCLE = Animation.Builder.create(0.6F).looping()
