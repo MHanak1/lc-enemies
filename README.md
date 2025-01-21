@@ -36,4 +36,4 @@ The sounds are the original sounds from the game, and they were downloaded from 
 ## Future Plans
 I am unlikely to work further on this mod. mainly because the way Minecraft and Lethal Company do enemy AI is quite different, which forced me to write some questionable quality code, which i don't enjoy doing.
 
-If I *do* end up working on this, I would work on the Jester firs, as well as adding Lethal Company items.
+If I *do* end up working on this, I would work on the Jester first, as well as adding Lethal Company items.
